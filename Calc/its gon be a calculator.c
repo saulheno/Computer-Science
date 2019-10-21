@@ -1,4 +1,4 @@
-// its gon be a fucking calculator
+// its gon be a calculator
 
 //  main.c
 
@@ -26,13 +26,13 @@ int main(){
 
 //        main++;
 
-   
+
 
     char method ;
 
     float num1, num2;
 
-    
+
 
     printf("Choose a Method [+ , - , / , *] or Press [N] if you would like to quit\n");
 
@@ -58,9 +58,9 @@ int main(){
 
     scanf("%f %f", &num1, &num2);
 
-    
 
-    
+
+
 
     switch (method) {
 
@@ -98,11 +98,10 @@ int main(){
 
     }
 
-      
+
 
 
 
     }
 
 }
-
