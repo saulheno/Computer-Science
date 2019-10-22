@@ -8,7 +8,7 @@ Wrote on 21/10/19
 int main()
 {
 	int choice, entry, count;
-	unsigned long i, a, sum;
+	long unsigned i, a, sum;
 	i = 0;
 	a = 1;
 	count = 2;
@@ -32,7 +32,7 @@ int main()
 				{
 					sum = i + a;
 					count ++;
-					printf("%d\n", sum);
+					printf("%lu\n", sum);
 					i = a;
 					a = sum; //It starts with two constants (we will always have '0' and '1' in this series)
 				}					//The counter keeps track, starting at 2 as we have 2 constants hardcoded.
