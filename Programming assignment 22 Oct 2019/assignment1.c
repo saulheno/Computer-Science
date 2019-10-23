@@ -2,7 +2,7 @@
 Saul Hennessy
 My first assignment, a program to simulate a maths quiz game
 Written on 22/10/19-xx/xx/xx
-Written in Atom (Linux/Windows) and compiled with GCC
+Written in Atom (Linux/Windows) and compiled with GCC.
 */
 #include <stdio.h>
 int main()
