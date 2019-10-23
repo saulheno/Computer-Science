@@ -137,7 +137,7 @@ int main()
 				}
 				else
 				{
-					printf ("Sorry!This only unlocks after completing the quiz!"); //A quick validation of whether a quiz has been completed.
+					printf ("Sorry!This only unlocks after completing the quiz!\n"); //A quick validation of whether a quiz has been completed.
 				}
 				break;
 			case 4:
