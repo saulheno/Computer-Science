@@ -72,9 +72,9 @@ int main()
 							}
 							if ((qnum==5) || (qnum==4))
 							{
-								printf ("3 + 2?\n");
+								printf ("21 - 8?\n");
 								scanf ("%d", &Uans4);
-								ans4=3+2;
+								ans4=21-8;
 								if (ans4==Uans4)
 								{
 									correct++;
