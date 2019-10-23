@@ -26,17 +26,25 @@ int main()
 		{
 			printf("Enter how many terms you would like displayed.\n");
 			scanf("%d", &entry);
-			printf("0\n1\n");
+			if (entry==1)
+			{
+				printf("1\n");
+			}
+			else
+			{
+				printf("0\n1\n");
 
-			while (count < entry) //The actual algorithm for the Fibonacci series. Funnily enough the shortest part.
-				{
-					sum = i + a;
-					count ++;
-					printf("%lu\n", sum);
-					i = a;
-					a = sum; //It starts with two constants (we will always have '0' and '1' in this series)
-				}					//The counter keeps track, starting at 2 as we have 2 constants hardcoded.
-									//The sum is printed, the previous highest number 'a' is saved as 'i', and then 'a' is saved as the sum.
+
+				while (count < entry) //The actual algorithm for the Fibonacci series. Funnily enough the shortest part.
+					{
+						sum = i + a;
+						count ++;
+						printf("%lu\n", sum);
+						i = a;
+						a = sum; //It starts with two constants (we will always have '0' and '1' in this series)
+					}					//The counter keeps track, starting at 2 as we have 2 constants hardcoded.
+										//The sum is printed, the previous highest number 'a' is saved as 'i', and then 'a' is saved as the sum.
+			}
 		}
 		else
 		{
