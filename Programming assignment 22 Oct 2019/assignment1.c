@@ -9,7 +9,7 @@ Written in Atom (Linux/Windows) and compiled with GCC.
 #include <stdlib.h>
 
 //srand(time(NULL))
-//rand() % 
+//rand() %
 int main()
 {
 	int exit, reply, qnum, ans1, ans2, ans3, ans4, ans5, Uans1, Uans2, Uans3, Uans4, Uans5, correct, incorrect, quizcount; //Initialising all the variables
