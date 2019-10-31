@@ -18,13 +18,13 @@ int main()
 	while (exit==0)
  {
 	 	ans1=ans2=ans3=ans4=ans5=Uans1=Uans2=Uans3=Uans4=Uans5=0; //Initialising all the variables
-		printf("Hello! Choose an option\n");
-		printf("1. Choose the amount of questions\n2. Begin the quiz\n3. See results\n4. Exit\n");
+		printf("Hello! Choose an option\n\n");
+		printf("1. Choose the amount of questions\n2. Begin the quiz\n3. See results\n4. Exit\n\n");
 		scanf("%d", &reply);
 		switch (reply) //Cycles through selected options
 		{
 			case 1:
-				printf("How many questions (Max of 5)?\n");
+				printf("How many questions (Max of 5)?\n\n");
 				scanf("%d", &qnum);
 				break;
 			case 2:
@@ -38,12 +38,12 @@ int main()
 					if (ans1==Uans1)
 					{
 						correct++;
-						printf("You guessed %d,the answer was %d.Correct!\n", Uans1, ans1);
+						printf("You guessed %d,the answer was %d.Correct!\n\n", Uans1, ans1);
 					}
 					else
 					{
 						incorrect++;
-						printf("You guessed %d,the answer was %d.Incorrect\n", Uans1, ans1);
+						printf("You guessed %d,the answer was %d.Incorrect\n\n", Uans1, ans1);
 					}
 					if  ((qnum==5) || (qnum==4) || (qnum==3) || (qnum==2))
 					{
@@ -53,12 +53,12 @@ int main()
 						if (ans2==Uans2)
 						{
 							correct++;
-							printf("You guessed %d,the answer was %d.Correct!\n", Uans2, ans2);
+							printf("You guessed %d,the answer was %d.Correct!\n\n", Uans2, ans2);
 						}
 						else
 						{
 							incorrect++;
-							printf("You guessed %d,the answer was %d.Incorrect\n", Uans2, ans2);
+							printf("You guessed %d,the answer was %d.Incorrect\n\n", Uans2, ans2);
 						}
 						if ((qnum==5) || (qnum==4) || (qnum==3))
 						{
@@ -68,12 +68,12 @@ int main()
 							if (ans3==Uans3)
 							{
 								correct++;
-								printf("You guessed %d,the answer was %d.Correct!\n", Uans3, ans3);
+								printf("You guessed %d,the answer was %d.Correct!\n\n", Uans3, ans3);
 							}
 							else
 							{
 								incorrect++;
-								printf("You guessed %d,the answer was %d.Incorrect\n", Uans3, ans3);
+								printf("You guessed %d,the answer was %d.Incorrect\n\n", Uans3, ans3);
 							}
 							if ((qnum==5) || (qnum==4))
 							{
@@ -83,12 +83,12 @@ int main()
 								if (ans4==Uans4)
 								{
 									correct++;
-									printf("You guessed %d,the answer was %d.Correct!\n", Uans4, ans4);
+									printf("You guessed %d,the answer was %d.Correct!\n\n", Uans4, ans4);
 								}
 								else
 								{
 									incorrect++;
-									printf("You guessed %d,the answer was %d.Incorrect\n", Uans4, ans4);
+									printf("You guessed %d,the answer was %d.Incorrect\n\n", Uans4, ans4);
 								}
 								if (qnum==5)
 								{
@@ -98,12 +98,12 @@ int main()
 									if (ans5==Uans5)
 									{
 										correct++;
-										printf("You guessed %d,the answer was %d.Correct!\n", Uans5, ans5);
+										printf("You guessed %d,the answer was %d.Correct!\n\n", Uans5, ans5);
 									}
 									else
 									{
 										incorrect++;
-										printf("You guessed %d,the answer was %d.Incorrect\n", Uans5, ans5);
+										printf("You guessed %d,the answer was %d.Incorrect\n\n", Uans5, ans5);
 									}
 
 								}
@@ -138,11 +138,11 @@ int main()
 			case 3:
 				if (quizcount==1)
 				{
-					printf("Correct=%d\nIncorrect=%d\n", correct,incorrect);
+					printf("Correct=%d\n\nIncorrect=%d\n\n", correct,incorrect);
 				}
 				else
 				{
-					printf ("Sorry!This only unlocks after completing the quiz!\n"); //A quick validation of whether a quiz has been completed.
+					printf ("Sorry!This only unlocks after completing the quiz!\n\n"); //A quick validation of whether a quiz has been completed.
 				}
 				break;
 			case 4:
@@ -150,7 +150,7 @@ int main()
 				return 0;
 				break;
 			default: //This prevents any unwanted integers bugging out the code
-				printf("An option, please.\n");
+				printf("An option, please.\n\n");
 				break;
 		}
 
