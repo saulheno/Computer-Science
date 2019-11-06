@@ -13,7 +13,7 @@ int main()
 {
   int entry [numbers];
   int transfer [numbers];
-  int i,j;
+  int i;
 
   printf("Enter numbers\n\n");
 
