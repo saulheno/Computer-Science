@@ -21,7 +21,7 @@ int main()
   while (exit==0)
   {
     qn1=qn2=0.00;
-    ans=Uans=0.00;
+    ans=Uans=0.00; //resetting variables
 
     printf("Hello! Choose an option\n\n");
 		printf("1. Choose the amount of questions\n2. Begin the quiz\n3. See results\n4. Exit\n\n");
@@ -29,11 +29,11 @@ int main()
 
     switch (reply) //Cycles through selected options
 		{
-			case 1:
-        do {
+			case 1: //option 1
+        do { //gets input and only loops if the input is out of the specified range.
     				printf("How many questions (Max of 5)?\n\n");
     				scanf("%d", &qnum);
-          }while(qnum>5 || qnum<1);
+          }while(qnum>5 || qnum<1); //the check to make sure its within spec
 				break;
 
       case 2:
@@ -42,11 +42,11 @@ int main()
         for (i=1; i<=qnum; i++)
         {
           qn1 = rand()%max;
-          qn2 = rand()%max;
+          qn2 = rand()%max;//randomising both numbers in the questions
 
-          op_select = rand()%max_op;
-          switch (op_select)
-          {
+          op_select = rand()%max_op; //using rand num to prompt a switch
+          switch (op_select)          // this switch chooses a random operator
+          {                           //each loop puts a different operator
             case 1:
               qo='*';
               ans=qn1*qn2;
@@ -65,10 +65,10 @@ int main()
               break;
           }
 
-          printf("Q%d:%.2f%c%.2f\n\n",i ,qn1, qo, qn2);
+          printf("Q%d:%.2f%c%.2f\n\n",i ,qn1, qo, qn2); //displaying the q to the user
           scanf("%f", &Uans);
 
-          if (ans==Uans)
+          if (ans==Uans) //checking if the answer is correct
           {
             correct++;
             printf("The answer is %.2f, you said %.2f. Correct\n\n", Uans, ans);
@@ -83,7 +83,7 @@ int main()
         }
         break;
       case 3:
-  			if (quizcount==1)
+  			if (quizcount==1) //checks if the flag has been triggered back in case 2
   			{
   				printf("Correct=%d\n\nIncorrect=%d\n\n", correct,incorrect);
   			}
