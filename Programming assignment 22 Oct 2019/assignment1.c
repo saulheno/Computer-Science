@@ -1,7 +1,7 @@
 /*
 Saul Hennessy
 My first assignment, a program to simulate a maths quiz game
-Written on 22/10/19-xx/xx/xx
+Written on 22/10/19
 Written in Atom (Linux/Windows) and compiled with GCC.
 */
 #include <stdio.h>
