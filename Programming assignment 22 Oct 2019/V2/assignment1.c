@@ -68,11 +68,36 @@ int main()
           printf("Q%d:%.2f%c%.2f\n\n",i ,qn1, qo, qn2);
           scanf("%f", &Uans);
 
+          if (ans==Uans)
+          {
+            correct++;
+            printf("The answer is %.2f, you said %.2f. Correct\n\n", Uans, ans);
+          }
 
+          if (ans!=Uans)
+          {
 
-          printf ("%.2f,%.2f\n\n",ans, Uans);
+              incorrect++;
+              printf("The answer is %.2f, you said %.2f. Incorrect\n\n", ans, Uans);
+          }
         }
         break;
+      case 3:
+  			if (quizcount==1)
+  			{
+  				printf("Correct=%d\n\nIncorrect=%d\n\n", correct,incorrect);
+  			}
+  			else
+				{
+          printf ("Sorry!This only unlocks after completing the quiz!\n\n"); //A quick validation of whether a quiz has been completed.
+  	  	}
+  			break;
+  		case 4:
+  			exit=1;
+  			return 0;
+  			break;
+  		default: //This prevents any unwanted integers bugging out the code
+  			printf("An option, please.\n\n");
     }
   }
 }
