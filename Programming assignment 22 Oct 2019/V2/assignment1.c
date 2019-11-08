@@ -40,7 +40,7 @@ int main()
         do {
           //gets input and only loops if the input is out of the specified range.
             system("cls"); //this is for windows. Clears the console
-            //system("clear") //this is for Linux
+            //system("clear") //this is for Linux/Mac
     				printf("How many questions (Max of 5)?\n\n");
     				scanf("%d", &qnum);
             getchar();
@@ -127,6 +127,6 @@ int main()
     printf("Press enter to continue...");
     getchar();
     system("cls"); //this is for windows
-    //system("clear") //this is for Linux
+    //system("clear") //this is for Linux/Mac
   }
 }
