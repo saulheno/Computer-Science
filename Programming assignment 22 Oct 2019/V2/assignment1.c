@@ -20,12 +20,13 @@ int main()
   exit=quizcount=0; //Begins the loop, and locks option 3 on first launch.
   while (exit==0)
   {
-    qn1=qn2=0.00;
+    qn1=qn2=op_select=0.00;
     ans=Uans=0.00; //resetting variables
 
     printf("Hello! Choose an option\n\n");
 		printf("1. Choose the amount of questions\n2. Begin the quiz\n3. See results\n4. Exit\n\n");
 		scanf("%d", &reply);
+    getchar();
 
     switch (reply) //Cycles through selected options
 		{
@@ -33,6 +34,7 @@ int main()
         do { //gets input and only loops if the input is out of the specified range.
     				printf("How many questions (Max of 5)?\n\n");
     				scanf("%d", &qnum);
+            getchar();
           }while(qnum>5 || qnum<1); //the check to make sure its within spec
 				break;
 
@@ -41,6 +43,7 @@ int main()
         quizcount=1; //This unlocks option 3, case 3 below.
         for (i=1; i<=qnum; i++)
         {
+          ans=Uans=0;
           qn1 = rand()%max;
           qn2 = rand()%max;//randomising both numbers in the questions
 
@@ -67,6 +70,7 @@ int main()
 
           printf("Q%d:%.2f%c%.2f\n\n",i ,qn1, qo, qn2); //displaying the q to the user
           scanf("%f", &Uans);
+          getchar();
 
           if (ans==Uans) //checking if the answer is correct
           {
@@ -99,5 +103,9 @@ int main()
   		default: //This prevents any unwanted integers bugging out the code
   			printf("An option, please.\n\n");
     }
+    printf("Press enter to continue...");
+    getchar();
+    system("cls"); //this is for windows
+    //system("clear") //this is for Linux
   }
 }
