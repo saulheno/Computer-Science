@@ -40,7 +40,3 @@ void stars(int n1, char c1) //Value of number writes to n1. Used to copy variabl
 
   printf("%c", c1);
 }
-void characters(char c1) //Value of character writes to c1. Used to copy variables from block to block
-{
-
-}
