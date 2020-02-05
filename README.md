@@ -1,2 +1,1 @@
-Heyo, 
-this bundle of random code is my collection of projects, assignments and notes in my first year of Computer Science!
+This collection of code is my projects, assignments and notes from my first year of Computer Science!
