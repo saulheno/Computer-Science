@@ -5,7 +5,7 @@ Written in Atom (Linux/Windows) and compiled with GCC
 */
 #include <stdio.h>
 
-void function (char c, int n)
+void function (char c, int n) //Can declare and define funtions in one go
 {
   int i;
   for (i=0;i<n;i++)
