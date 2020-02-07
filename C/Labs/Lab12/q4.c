@@ -9,12 +9,16 @@ int average(int sum)
 {
   int avg;
   avg = sum/3;
+
+  return avg;
 }
 int sum(int n1, int n2, int n3)
 {
   int avg, sum;
   sum=n1 + n2 + n3;
   avg=average(sum);
+
+  return avg;
 }
 int main()
 {
@@ -25,7 +29,6 @@ int main()
   avg=sum(n1, n2, n3);
 
   printf("Average of %d,%d and %d is %d\n",n1, n2, n3, avg);
-
 
 	getchar();
 	return 0;
