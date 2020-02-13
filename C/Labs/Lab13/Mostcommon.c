@@ -5,7 +5,7 @@ Written in Atom (Linux/Windows) and compiled with GCC
 */
 #include <stdio.h>
 
-#define NUMBER 3
+#define NUMBER 7
 
 int common(char a[NUMBER])
 {
@@ -15,7 +15,7 @@ int common(char a[NUMBER])
 
   for(i=0; i<NUMBER; i++) //this for loop counts how many of each character there is
   {
-    count[a[i]] = count[a[i]] + 1; //seperate array made.
+    count[a[i]]++; //seperate array made.
                    //Every time a duplicate character appears,
                    //it is incremented for the character
   }
