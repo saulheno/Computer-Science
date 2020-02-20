@@ -70,6 +70,7 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
     printf("Enter number %d \n", i+1);
     scanf("%d", &*(arr_e+i));
     getchar();
+    _flushall();
     if(*(arr_e+i)<=0 || *(arr_e+i)>MAX) //checks to see if the number is 0 or below, or if its above 42
     {
       printf("Error. Please choose a number between 1 and 42.\n"); //an error message is shown if the number is not valid
