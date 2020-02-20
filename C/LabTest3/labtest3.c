@@ -5,13 +5,13 @@ Written on XX/XX/XX
 Written in Atom (Linux/Windows) and compiled with GCC
 */
 #include <stdio.h>
+#include<stdlib.h>
 
 #define DOLLAR 1.19
 #define EURO 0.84
 #define ENTRY_NO 3
 
 int i;
-int exit=0;
 
 void change_to_Euro(float *arr_e, float *arr_c)
 {
@@ -32,6 +32,7 @@ void change_to_Dollar(float *arr_e, float *arr_c)
 
 int main()
 {
+  int exit=0;
   int curr, reply;
   float average, sum;
   float arr_entry[ENTRY_NO];
