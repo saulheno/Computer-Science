@@ -79,6 +79,10 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
       Sleep(800);
 
     }
+    else
+    {
+      *(arr_c+*(arr_e+i))= *(arr_c+*(arr_e+i)) + 1;//this increments the counting array for tracking number usage across runs
+    }
     for(j=0; j<i; j++)//this is a loop to check if a number has already been used
     {
       if(*(arr_e+i)==*(arr_e+j))//if the entered number is the same as a previously entered number, an error is thrown
@@ -89,7 +93,7 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
         Sleep(800);
       }
     }
-    *(arr_c+*(arr_e+i))= *(arr_c+*(arr_e+i)) + 1;//this increments the counting array for tracking number usage across runs
+
     system("cls");
   }
 }
