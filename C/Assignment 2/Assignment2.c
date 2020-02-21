@@ -201,6 +201,7 @@ int main()
           {
             printf("Tough luck, you did not win any prizes. Try again perhaps?\n");
           }
+          Sleep(800);
           break;
         }
         else
