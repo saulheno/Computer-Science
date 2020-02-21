@@ -16,6 +16,7 @@ Written in Atom (Linux/Windows) and compiled with GCC
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
+#include <windows.h>
 
 #define MAX_LOTTO_NUMBERS 6
 #define MAX 42
@@ -75,7 +76,8 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
     {
       printf("Error. Please choose a number between 1 and 42.\n"); //an error message is shown if the number is not valid
       i--; //this decriment is crucial. It ensures the loop doesnt keep the unwanted entry, allowing it to be overwritten on the next pass
-      getchar();
+      Sleep(800);
+
     }
     for(j=0; j<i; j++)//this is a loop to check if a number has already been used
     {
@@ -84,7 +86,7 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
         printf("Error. Please use different numbers\n");
         *(arr_c+*(arr_e+i))= *(arr_c+*(arr_e+i)) - 1;//this decriments the counter for number usage to ensure accurate results
         i--;//this decriment is crucial. It ensures the loop doesnt keep the unwanted entry, allowing it to be overwritten on the next pass
-        getchar();
+        Sleep(800);
       }
     }
     *(arr_c+*(arr_e+i))= *(arr_c+*(arr_e+i)) + 1;//this increments the counting array for tracking number usage across runs
@@ -219,6 +221,8 @@ int main()
               printf("%d was entered %d times\n", i, *(arr_count+i));
             }
           }
+          printf("\n\nPress enter to continue\n");
+          getchar();
           break;
         }
         else
@@ -239,7 +243,7 @@ int main()
       {
         //This prevents any unwanted integers bugging out the code
   			printf("Error. Please choose an option within the paramaters.\n\n");
-        getchar();
+        Sleep(800);
         break;
       }
     }
@@ -247,10 +251,9 @@ int main()
 
 
 
-    printf("Press enter to continue..."); //the message that appears after each and every case
-    getchar(); //waits for a user input of enter to move on, allowing the user to read anything currently on screen before proceeding
+    Sleep(800);
+    _flushall();
     system("cls");//clears the screen to tidy the program up aesthetics wise
   }
-  getchar();
   return 0;
 }
