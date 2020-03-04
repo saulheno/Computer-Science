@@ -39,7 +39,6 @@ void insertionSort(int arr[]) //function is modular enough to take either arr_en
         arr[x + 1] = key; //Moves the key back to where the switched value of X was originally
     }
 }
-
 int compare(int *arr_e, int *arr_w) //the comparison function
 {
   int matching=0;
@@ -97,7 +96,6 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
     system("cls");
   }
 }
-
 int main()
 {
   int exit=0;
