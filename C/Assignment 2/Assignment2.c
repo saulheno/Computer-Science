@@ -43,15 +43,12 @@ int compare(int *arr_e, int *arr_w) //the comparison function
 {
   int matching=0;
 
-  for(i=0; i<MAX_LOTTO_NUMBERS; i++) //first loop sets up arr_e for checking
+  for(i=0, j=0; i<MAX_LOTTO_NUMBERS, j<MAX_LOTTO_NUMBERS; i++, j++) // loop sets up arr_e for checking against arr_w
   {
-    for(j=0; j<MAX_LOTTO_NUMBERS; j++) //2nd loop runs through all of arr_w against one value of arr_e
-    {
       if(*(arr_e+i)==*(arr_w+j)) //if a match is found, matching is incremented by 1
       {
         matching= matching + 1;
       }
-    }
 
   }
   return matching;
@@ -80,7 +77,7 @@ void initialise(int *arr_e, int *arr_w, int *arr_c) //Function to initialise one
     }
     else
     {
-      *(arr_c+*(arr_e+i))= *(arr_c+*(arr_e+i)) + 1;//this increments the counting array for tracking number usage across runs
+      *(arr_c+*(arr_e+i))++;//this increments the counting array for tracking number usage across runs
     }
     for(j=0; j<i; j++)//this is a loop to check if a number has already been used
     {
@@ -101,14 +98,9 @@ int main()
   int exit=0;
   int reply;
   int arr_entry[MAX_LOTTO_NUMBERS];
-  int arr_count[43]; //set to 43 as 0 is not a valid entry, ensuring it has 42 values from 1 on
+  int arr_count[43]={}; //set to 43 as 0 is not a valid entry, ensuring it has 42 values from 1 on
   int arr_winners[]={1, 3, 5, 7, 9, 11}; //Various variables being initialised
   int matching=0;
-
-  for(i=1; i<43; i++)
-  {
-    *(arr_count+i)=0;
-  }
 
   while (exit==0)//keeps the program running until an exit flag is trigered
   {
@@ -137,6 +129,7 @@ int main()
           }
 
           printf("\n");
+          Sleep(800);
           break;
         }
         else
