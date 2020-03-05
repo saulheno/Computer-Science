@@ -21,7 +21,7 @@ int main()
     "Bence",
     "Ben",
     "Tom",
-  };
+                };
   printf("Enter your name\n");
   gets(entered_name);
   //puts(entered_name)
