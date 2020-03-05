@@ -43,12 +43,15 @@ int compare(int *arr_e, int *arr_w) //the comparison function
 {
   int matching=0;
 
-  for(i=0, j=0; i<MAX_LOTTO_NUMBERS, j<MAX_LOTTO_NUMBERS; i++, j++) // loop sets up arr_e for checking against arr_w
+  for(i=0; i<MAX_LOTTO_NUMBERS; i++) // loop sets up arr_e for checking against arr_w
   {
+    for(j=0; j<MAX_LOTTO_NUMBERS; j++)
+    {
       if(*(arr_e+i)==*(arr_w+j)) //if a match is found, matching is incremented by 1
       {
         matching= matching + 1;
       }
+    }
 
   }
   return matching;
