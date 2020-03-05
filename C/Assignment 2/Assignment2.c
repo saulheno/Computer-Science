@@ -101,6 +101,7 @@ int main()
   int arr_count[43]={}; //set to 43 as 0 is not a valid entry, ensuring it has 42 values from 1 on
   int arr_winners[]={1, 3, 5, 7, 9, 11}; //Various variables being initialised
   int matching=0;
+  char confirmation;
 
   while (exit==0)//keeps the program running until an exit flag is trigered
   {
@@ -230,9 +231,15 @@ int main()
 
       case 6://the exit case
       {
-        exit=1; //the exit flag being tripped, closing the program
-  			return 0;
-  			break;
+        printf("Are you sure you want to quit? y/n\n"); //checks to make sure the user didnt accidently hit the exit key
+        scanf("%c", &confirmation);
+        if(confirmation=='y')
+        {
+          exit=1; //the exit flag being tripped, closing the program
+  			  return 0;
+  			  break;
+        }
+        break;
       }
 
       default:
