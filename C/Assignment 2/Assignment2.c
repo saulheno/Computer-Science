@@ -167,10 +167,10 @@ int main()
 
           printf("\n"); //prints a new line for neatness
 
-          for(i=0; i<6; i++) //printing the winning numbers
-          {
-            printf("%d ", *(arr_winners+i));
-          } //block to test array values
+          // for(i=0; i<6; i++) //printing the winning numbers
+          // {
+          //   printf("%d ", *(arr_winners+i));
+          // } //block to test array values
 
           printf("\n");//prints a new line for neatness
 
@@ -197,7 +197,7 @@ int main()
           {
             printf("Tough luck, you did not win any prizes. Try again perhaps?\n");
           }
-          Sleep(800);
+          Sleep(1500);
           break;
         }
         else
