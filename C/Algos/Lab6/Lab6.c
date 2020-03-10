@@ -53,9 +53,9 @@ int main()
 	int i;
 	int j=5;
 	int a[5] = {1, 3, 5, 7, 9};
-	int b[5] = {2, 4, 6, 8, 10};
-	int c[10];
-	int aux[10];
+	int b[6] = {2, 4, 6, 8, 10, 12};
+	int c[11];
+	int aux[11];
 	double time_taken;
 	double t;
 
@@ -70,7 +70,7 @@ int main()
 
 	printf("\nArray 2\n");
 
-	for(i=0; i<5; i++)
+	for(i=0; i<6; i++)
 	{
 	printf("%d ",b[i]);
 	}
@@ -80,30 +80,34 @@ int main()
 	for(i=0;i<5; i++)
 	{
 		c[i] = a[i];
+	}
+
+	for(i=0;i<6; i++)
+	{
 		c[j] = b[i];
 		j++;
 	}
 
 	printf("Merged\n");
 
-	for(i=0; i<10; i++)
+	for(i=0; i<11; i++)
 	{
 	printf("%d ",c[i]);
 	}
 
 	printf("\n");
 
-	msort(c, aux, 0, 10 - 1);
+	msort(c, aux, 0, 11 - 1);
 
 	printf("Sorted\n");
 
-	for (int i=0;i<10;i++)
+	for (int i=0;i<11;i++)
 	{
 		printf("%d ",c[i]);
 	}
 
 	printf("\n");
-	
+
 	t=clock() - t;
 	time_taken = ((double)t)/CLOCKS_PER_SEC;
 	printf("Time takes : %lfs \n", time_taken);
