@@ -168,7 +168,7 @@ int main()
             printf("%d ", *(arr_entry+i));
           }
 
-          printf("\n"); //prints a new line for neatness
+          // printf("\n"); //prints a new line for neatness
 
           // for(i=0; i<6; i++) //printing the winning numbers
           // {
