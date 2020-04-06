@@ -23,10 +23,111 @@ int i,j;
 int Encryption_Check=0;
 int Entry_Check=0;
 
+void menu();
+void entry(int [MAX], int*);
+void encrypt(int [MAX]);
+void compare(int [MAX], int [MAX], int);
+void decrypt(int [MAX]);
+
+struct code_counter {
+int correct_code;
+int wrong_code;
+};
+
+struct code_counter count;
+
+int main(){
+  menu();
+
+  return 0;
+}
+
+void menu(){
+  int exit=0;
+  int reply;
+  int error=0;
+  int arr_code[MAX]={};
+  int access_code[MAX]={4, 5, 2, 3};
+  int correct=0;
+  char confirmation;
+  count.correct_code=count.wrong_code=0;
+
+  //keeps the program running until an exit flag is trigered
+  while (exit==0){
+    printf("Choose an option\n\n");
+    printf("1. Code Selection\n2. Encrypt\n");
+    printf("3. Check Code\n4. Decrypt\n");
+    printf("5. Attempt Counter\n6. Exit\n");
+
+    scanf("%d", &reply);
+    getchar();
+    _flushall();
+    //this catches any characters or other unwanted replies,
+    //and prevents an indefinite loop.
+
+    //Cycles through selected options
+    switch (reply){
+      case 1:{
+        entry(arr_code, &error);
+        break;
+      }case 2:{
+        if(Encryption_Check==1){
+          system("cls");
+          printf("Error. Code is already encrypted!\n\n");
+          break;
+        }else if(Entry_Check==1){
+          encrypt(arr_code);
+          break;
+        }else{
+          system("cls");
+          printf("Error. Option 1 must be run first\n\n");
+          break;
+        }
+      }case 3:{
+        if(Encryption_Check==1){
+          compare(arr_code, access_code, correct);
+          break;
+        }else{
+          system("cls");
+          printf("Error. Option 2 must be run first\n\n");
+          break;
+        }
+      }case 4:{
+        if(Encryption_Check==1){
+          decrypt(arr_code);
+          break;
+        }else{
+          system("cls");
+          printf("Error. Option 2 must be run first\n");
+          break;
+        }
+      }case 5:{
+        system("cls");
+        printf("%d Correct\n", count.correct_code);
+        printf("%d Incorrect\n\n", count.wrong_code);
+        break;
+      }case 6:{
+        system("cls");
+        printf("Are you sure you want to quit? y/n\n"); //checks to make sure the user didnt accidently hit the exit key
+        scanf("%c", &confirmation);
+        if(confirmation=='y')
+        {
+          exit=1; //the exit flag being tripped, closing the program
+          break;
+        }
+        break;
+      }default:{
+        system("cls");
+        //This prevents any unwanted integers bugging out the code
+        printf("Error. Please choose an option within the paramaters.\n\n");
+        break;
+      }
+      }
+    }
+}
+
 void entry(int *arr_code, int *error){
   int reply;
-
-  *error=0;
 
   system("cls");
   printf("1. Manually enter code\n");
@@ -42,20 +143,18 @@ void entry(int *arr_code, int *error){
       Encryption_Check=0;
       printf("Code must be 4 numbers long ");
       printf("and each number be between 0 and 9.\n");
-      printf("Enter each number with a space in between\n");
-
-      scanf("%d%d%d%d", &*(arr_code+0), &*(arr_code+1), &*(arr_code+2), &*(arr_code+3));
-      getchar();
-      _flushall();
+      printf("Enter each number one at a time\n");
 
       for(i=0;i<MAX;i++){
+        printf("Enter number %d\n", i+1);
+        scanf("%d", &*(arr_code+i));
+        getchar();
+        _flushall();
 
-        //checks to see if the number is 0 or below, or if its above 42
         if(*(arr_code+i)<0 || *(arr_code+i)>9) {
-          //an error message is shown if the number is not valid
           system("cls");
           printf("Error. Please choose numbers between 0 and 9.\n\n");
-          *error=1;
+          i--; //this decrement ensures the garbage entry is overwritten
         }
       }
       break;
@@ -76,10 +175,13 @@ void entry(int *arr_code, int *error){
       break;
       }
     }
+
+  Entry_Check=1;
 }
 
 void encrypt(int *arr_code){
   int temp;
+
   //swapping 1st with 3rd
   temp=*(arr_code+2);
   *(arr_code+2)=*(arr_code+0);
@@ -99,16 +201,32 @@ void encrypt(int *arr_code){
     }
   }
   Encryption_Check=1;
+
+  system("cls");
+  printf("Encrypted code is ");
+  for(i=0;i<MAX;i++){
+    printf("%d", *(arr_code+i));
+  }
+  printf("\n\n");
 }
 
-void compare(int *arr_code, int *access_code, int *correct){
-  *correct=0;
+void compare(int *arr_code, int *access_code, int correct){
+  correct=0;
   for(i=0; i<MAX; i++){
     if((*(arr_code+i))==(*(access_code+i))){
-      *correct=*correct + 1;
+      correct=correct + 1;
     }
   }
+  system("cls");
+  if(correct==4){
+    count.correct_code++;
+    printf("Correct! Access granted.\n\n");
+  }else{
+    count.wrong_code++;
+    printf("Incorrect! Access denied.\n\n");
+  }
 }
+
 void decrypt(int *arr_code){
   int temp;
 
@@ -132,132 +250,11 @@ void decrypt(int *arr_code){
   *(arr_code+1)=temp;
 
   Encryption_Check=0;
-}
 
-
-
-struct code_counter{
-int correct_code;
-int wrong_code;
-};
-
-
-int main(){
-  int exit=0;
-  int reply;
-  int error=0;
-  int arr_code[MAX]={};
-  int access_code[4]={4, 5, 2, 3};
-  int correct=0;
-  char confirmation;
-  struct code_counter count;
-  count.correct_code=count.wrong_code=0;
-
-  //keeps the program running until an exit flag is trigered
-  while (exit==0){
-    printf("Choose an option\n\n");
-    printf("1. Code Selection\n2. Encrypt\n");
-    printf("3. Check Code\n4. Decrypt\n");
-    printf("5. Attempt Counter\n6. Exit\n");
-
-    scanf("%d", &reply);
-    getchar();
-    _flushall();
-    //this catches any characters or other unwanted replies,
-    //and prevents an indefinite loop.
-
-    //Cycles through selected options
-    switch (reply){
-      case 1:{
-        entry(arr_code, &error);
-        if(error==0){
-          system("cls");
-          printf("The code is ");
-          for(i=0;i<MAX;i++){
-            printf("%d", *(arr_code+i));
-          }
-          printf("\n\n");
-        }else{
-          for(i=0;i<MAX;i++){
-            *(arr_code+i)=0;
-          }
-        }
-
-      Entry_Check=1;
-      break;
-      }case 2:{
-        if(Encryption_Check==1){
-          system("cls");
-          printf("Error. Code is already encrypted!\n\n");
-          break;
-        }else if(Entry_Check==1){
-          encrypt(arr_code);
-          system("cls");
-          printf("Encrypted code is ");
-          for(i=0;i<MAX;i++){
-            printf("%d", *(arr_code+i));
-          }
-          printf("\n\n");
-          break;
-        }else{
-          system("cls");
-          printf("Error. Option 1 must be run first\n\n");
-          break;
-        }
-      }case 3:{
-        if(Encryption_Check==1){
-          compare(arr_code, access_code, &correct);
-          system("cls");
-          if(correct==4){
-            count.correct_code++;
-            printf("Correct! Access granted.\n\n");
-          }else{
-            count.wrong_code++;
-            printf("Incorrect! Access denied.\n\n");
-          }
-          break;
-        }else{
-          system("cls");
-          printf("Error. Option 2 must be run first\n\n");
-          break;
-        }
-      }case 4:{
-        if(Encryption_Check==1){
-          decrypt(arr_code);
-          system("cls");
-          printf("Decrypted code is ");
-          for(i=0;i<MAX;i++){
-            printf("%d", *(arr_code+i));
-          }
-          printf("\n\n");
-          break;
-        }else{
-          system("cls");
-          printf("Error. Option 2 must be run first\n");
-          break;
-        }
-      }case 5:{
-        system("cls");
-        printf("%d Correct\n", count.correct_code);
-        printf("%d Incorrect\n\n", count.wrong_code);
-        break;
-      }case 6:{
-        system("cls");
-        printf("Are you sure you want to quit? y/n\n"); //checks to make sure the user didnt accidently hit the exit key
-        scanf("%c", &confirmation);
-        if(confirmation=='y')
-        {
-          exit=1; //the exit flag being tripped, closing the program
-  			  return 0;
-  			  break;
-        }
-        break;
-      }default:{
-        system("cls");
-        //This prevents any unwanted integers bugging out the code
-        printf("Error. Please choose an option within the paramaters.\n\n");
-        break;
-      }
-      }
-    }
+  system("cls");
+  printf("Decrypted code is ");
+  for(i=0;i<MAX;i++){
+    printf("%d", *(arr_code+i));
+  }
+  printf("\n\n");
 }
