@@ -1,6 +1,5 @@
 /*
 Saul Hennessy
-XXXXXXXXXXXXXX
 Wrote on 07/04/2020
 Wrote in Atom (Linux/Windows) and compiled with GCC
 */
@@ -8,11 +7,11 @@ Wrote in Atom (Linux/Windows) and compiled with GCC
 #include <stdlib.h>
 #include <time.h>
 
-#define VALUES 5
-#define MAX 1000
+#define VALUES 1000
+#define MAX 100000
 
 int main(){
-  double arr[5];
+  double arr[VALUES]={};
   int i, j;
   double diff = 0;
   double high = 0;
@@ -23,6 +22,22 @@ int main(){
   for (i=0; i<VALUES; i++){
     arr[i]=rand()%MAX;
   }
+  for(i=0;i<VALUES;i++){
+    for(j=0;j<VALUES;j++){
+      if(arr[i]-arr[j]>diff){
+        diff=arr[i]-arr[j];
+        high=arr[i];
+        low=arr[j];
+      }else if(arr[j]-arr[i]>diff){
+        diff=arr[j]-arr[i];
+        high=arr[j];
+        low=arr[i];
+      }
+    }
+  }
+  printf("High is %.0lf\n", high);
+  printf("Low is %.0lf\n", low);
+  printf("Diff is %.0lf\n", diff);
 	getchar();
 	return 0;
 }
