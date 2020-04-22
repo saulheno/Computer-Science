@@ -19,18 +19,16 @@ Wrote in Atom (Linux/Windows) and compiled with GCC
 #define MAX_RAND 10
 #define MAX 4
 
-void menu();
-void entry(int [MAX], int*);
-void encrypt(int [MAX]);
-void compare(int [MAX], int [MAX], int);
-void decrypt(int [MAX]);
-
 struct code_counter {
 int correct_code;
 int wrong_code;
 };
 
-struct code_counter count;
+void menu();
+void entry(int [MAX], int*);
+void encrypt(int [MAX]);
+void compare(int [MAX], int [MAX], int, struct code_counter*);
+void decrypt(int [MAX]);
 
 int main(){
   menu();
@@ -48,6 +46,7 @@ void menu(){
   int Encryption_Check=0;
   int Entry_Check=0;
   char confirmation;
+  struct code_counter count;
   count.correct_code=count.wrong_code=0;
 
   //keeps the program running until an exit flag is trigered
@@ -86,7 +85,7 @@ void menu(){
         }
       }case 3:{
         if(Encryption_Check==1){
-          compare(arr_code, access_code, correct);
+          compare(arr_code, access_code, correct, &count);
           break;
         }else{
           system("cls");
@@ -208,7 +207,7 @@ void encrypt(int *arr_code){
   printf("\n\n");
 }
 
-void compare(int *arr_code, int *access_code, int correct){
+void compare(int *arr_code, int *access_code, int correct, struct code_counter *count){
   correct=0;
   for(int i=0; i<MAX; i++){
     if((*(arr_code+i))==(*(access_code+i))){
@@ -217,10 +216,10 @@ void compare(int *arr_code, int *access_code, int correct){
   }
   system("cls");
   if(correct==4){
-    count.correct_code++;
+    count->correct_code++;
     printf("Correct! Access granted.\n\n");
   }else{
-    count.wrong_code++;
+    count->wrong_code++;
     printf("Incorrect! Access denied.\n\n");
   }
 }
