@@ -1,8 +1,8 @@
 /*
 Saul Hennessy
 XXXXXXXXXXXXXX
-Wrote on XX/XX/XX
-Wrote in Atom (Linux/Windows) and compiled with GCC
+Written on XX/XX/XX
+Written in Atom (Linux/Windows) and compiled with GCC
 */
 #include <stdio.h>
 #include <stdlib.h>

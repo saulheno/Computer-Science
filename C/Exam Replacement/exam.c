@@ -19,10 +19,6 @@ Wrote in Atom (Linux/Windows) and compiled with GCC
 #define MAX_RAND 10
 #define MAX 4
 
-int i,j;
-int Encryption_Check=0;
-int Entry_Check=0;
-
 void menu();
 void entry(int [MAX], int*);
 void encrypt(int [MAX]);
@@ -49,6 +45,8 @@ void menu(){
   int arr_code[MAX]={};
   int access_code[MAX]={4, 5, 2, 3};
   int correct=0;
+  int Encryption_Check=0;
+  int Entry_Check=0;
   char confirmation;
   count.correct_code=count.wrong_code=0;
 
@@ -69,6 +67,8 @@ void menu(){
     switch (reply){
       case 1:{
         entry(arr_code, &error);
+        Encryption_Check=0;
+        Entry_Check=1;
         break;
       }case 2:{
         if(Encryption_Check==1){
@@ -77,6 +77,7 @@ void menu(){
           break;
         }else if(Entry_Check==1){
           encrypt(arr_code);
+          Encryption_Check=1;
           break;
         }else{
           system("cls");
@@ -95,6 +96,7 @@ void menu(){
       }case 4:{
         if(Encryption_Check==1){
           decrypt(arr_code);
+          Encryption_Check=0;
           break;
         }else{
           system("cls");
@@ -140,12 +142,11 @@ void entry(int *arr_code, int *error){
   switch (reply) {
     case 1:{
       system("cls");
-      Encryption_Check=0;
       printf("Code must be 4 numbers long ");
       printf("and each number be between 0 and 9.\n");
       printf("Enter each number one at a time\n");
 
-      for(i=0;i<MAX;i++){
+      for(int i=0;i<MAX;i++){
         printf("Enter number %d\n", i+1);
         scanf("%d", &*(arr_code+i));
         getchar();
@@ -163,7 +164,7 @@ void entry(int *arr_code, int *error){
       srand(time(0));
       system("cls");
       printf("The code is ");
-      for(i=0;i<MAX;i++){
+      for(int i=0;i<MAX;i++){
         *(arr_code+i) = rand()%MAX_RAND;
         printf("%d", *(arr_code+i));
         }
@@ -175,8 +176,6 @@ void entry(int *arr_code, int *error){
       break;
       }
     }
-
-  Entry_Check=1;
 }
 
 void encrypt(int *arr_code){
@@ -194,17 +193,16 @@ void encrypt(int *arr_code){
 
   //adding 1 to all entries
   //switching 10's to 0
-  for(i=0;i<MAX;i++){
+  for(int i=0;i<MAX;i++){
     (*(arr_code+i))++;
     if((*(arr_code+i))==10){
       (*(arr_code+i))=0;
     }
   }
-  Encryption_Check=1;
 
   system("cls");
   printf("Encrypted code is ");
-  for(i=0;i<MAX;i++){
+  for(int i=0;i<MAX;i++){
     printf("%d", *(arr_code+i));
   }
   printf("\n\n");
@@ -212,7 +210,7 @@ void encrypt(int *arr_code){
 
 void compare(int *arr_code, int *access_code, int correct){
   correct=0;
-  for(i=0; i<MAX; i++){
+  for(int i=0; i<MAX; i++){
     if((*(arr_code+i))==(*(access_code+i))){
       correct=correct + 1;
     }
@@ -232,7 +230,7 @@ void decrypt(int *arr_code){
 
   //taking 1 from all entries
   //switching -1's to 9
-  for(i=0;i<MAX;i++){
+  for(int i=0;i<MAX;i++){
     (*(arr_code+i))--;
     if((*(arr_code+i))==-1){
       (*(arr_code+i))=9;
@@ -249,11 +247,9 @@ void decrypt(int *arr_code){
   *(arr_code+3)=*(arr_code+1);
   *(arr_code+1)=temp;
 
-  Encryption_Check=0;
-
   system("cls");
   printf("Decrypted code is ");
-  for(i=0;i<MAX;i++){
+  for(int i=0;i<MAX;i++){
     printf("%d", *(arr_code+i));
   }
   printf("\n\n");
