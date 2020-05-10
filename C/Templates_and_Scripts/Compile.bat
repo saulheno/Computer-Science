@@ -1,3 +1,3 @@
-gcc *.c -o Test
+gcc *.c -o -wall Test
 
 PAUSE
