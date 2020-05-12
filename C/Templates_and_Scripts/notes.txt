@@ -1,7 +1,7 @@
 gcc *.c
 will just output a.exe
 
--o specifies output, IE naming the exe
+-o **** specifies output, IE naming the exe ****.exe
 
 -o1/-o2/-o3 various levels of optiisations
 

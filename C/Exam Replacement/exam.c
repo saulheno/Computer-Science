@@ -209,6 +209,7 @@ void encrypt(int *arr_code){
 
 void compare(int *arr_code, int *access_code, int correct, struct code_counter *count){
   correct=0;
+  //comparing user code against the pre-defined access code
   for(int i=0; i<MAX; i++){
     if((*(arr_code+i))==(*(access_code+i))){
       correct=correct + 1;
