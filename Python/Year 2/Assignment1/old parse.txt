@@ -1,0 +1,19 @@
+def parse(file, articles, count):
+    word_list = []
+    for line in file:
+        line = line.strip()
+        if line == "<NEW DOCUMENT>":
+            articles[count] = word_list  # sets the dictionary value to the list, so Dict[1] would return all of doc 1
+            word_list = []  # wipes the list for the next iteration
+            count = count + 1
+
+        word_list_total = line.split()  # splits the lines into individual words and inserts them into a list
+        for word in word_list_total:
+            word = word.lower().strip()
+            # removes commas, fullstops, and other punctuation
+            word = word.strip("`.,:'_-")
+            word_list.append(word)  # adds words to a list
+    articles[count] = word_list  # needs to be done just after the loop,
+    # otherwise the last doc is lost as it never writes the final list to the dict
+
+    return (count)
