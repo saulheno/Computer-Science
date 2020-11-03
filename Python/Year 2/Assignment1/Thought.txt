@@ -1,0 +1,6 @@
+dict can be like "WORD : Doc Number"
+increment Doc Number every time <New Document> is passed
+
+for multiple words, if that isnt natively implemented for
+searching a dict, put them as sets individually
+then use set logic to solve common documents
