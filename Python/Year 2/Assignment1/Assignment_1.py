@@ -19,10 +19,13 @@ def parse(file, articles, count):
 
 
 def search(search_word, article_search_set):
-    if len(article_search_set) == 0: # checks to see if the results set is empty
-        article_search_set = articles[search_word] # if it is, it sets the entire first search result to the set
+    if search_word not in articles :
+        print('"',search_word, '"', "is not in any documents. Disregarding")
     else:
-        article_search_set = article_search_set & articles[search_word] # otherwise it finds the common values and keeps
+        if len(article_search_set) == 0: # checks to see if the results set is empty
+            article_search_set = articles[search_word] # if it is, it sets the entire first search result to the set
+        else:
+            article_search_set = article_search_set & articles[search_word] # otherwise it finds the common values and keeps
     return article_search_set                                           # those only
 
 
@@ -56,8 +59,10 @@ def menu():
             article_search_set = set(search(search_word, article_search_set))  # searches with current search word
             # returns the set so it can be update for the full range of documents containing the desired words
 
-        print("\nThe search returned these documents\n", sorted(article_search_set))
-        # article_search_set = search(search_word, article_search_set)
+        if len(article_search_set) == 0:
+            print("\nThe search returned no relevant documents\n")
+        else:
+            print("\nThe search returned these documents\n", sorted(article_search_set))
 
     elif ans == '2':
         entry = int(input("Choose document to view(1-229)"))
