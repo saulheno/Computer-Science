@@ -1,3 +1,9 @@
+#Saul Hennessy
+#CA 1. A program to import 2 text files of articles and have them be searchable using a
+#dictionary/set index and also be printable by article number
+#Written on 03/11/2020
+#Written in Pycharm
+
 articles = {}
 count = 0
 search_word = ''
@@ -8,7 +14,7 @@ def parse(file, articles, count):
         line = line.strip()
         if line == "<NEW DOCUMENT>":
             count = count + 1
-        word_list_total = line.split()  # splits the lines into individual words and inserts them into a list
+        word_\list_total = line.split()  # splits the lines into individual words and inserts them into a list
         for word in word_list_total:
             word = word.lower()
             word = word.strip("`.,:'_-")  # removes punctuation
@@ -30,7 +36,7 @@ def search(search_word, article_search_set):
 
 
 def clean_print(entry):
-    if entry >= 226: # cheks if the entry is above 226
+    if entry >= 226: # checks if the entry is above 226
         count = 226 # if it is, the count is seeded to 226, this means this document is in the second TXT file
         file = open("ap_docs2.txt") # opens second txt file
     else:
