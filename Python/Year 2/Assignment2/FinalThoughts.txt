@@ -1,0 +1,29 @@
+This assignment was quite challenging in my opinion. A lot of different concepts and ideas had
+to be juggled to get a working and cohesive result that also met the brief and its requirements. 
+
+I struggled a lot initially with getting classes right, but once it clicked i found it quite easy.
+
+Most of the logic I had more or less planned out in advance, and as such a lot of the pieces and
+functions worked together quite well.
+
+One thing that took me a bit to figure out was a problem I had in which the customer data was being
+wiped every time the menu function looped. I found later after lots of troubleshooting that since
+the cust variable was initialised in the function it was deleted when that instance of the function 
+ended. As such I had to declare all persistant value such as flags for allowing and disallowing entry
+in the main function, and pass and return them over and over every loop.
+
+I initially thought the shopping cart class would be very difficault, but once i implemented PIDs
+into the product list it made it much much simpler, and ended up having the shopping cart class
+be nothing more than a dictionary constructor for the mostpart.
+
+Getting __str__ right and working was a challenge too, but I got there in the end and it all works
+as expected now.
+
+I also learned proper ocstring formatting for this assignment, and I was very suprised at just how
+concise and helpful they are. I had no idea that classes and subclasses got so much extra info
+automatically outputted alongside your docstrings with the help(class) command, and as such I 
+put a lot of effort into making sure docstrings were useful in my classes and functions.
+
+Private attributes was also a new attribute for me, and I made sure to implement them for "sensitive"
+data such as names, ages, regions etc. They were much simpler to implement than I had thought too,
+much to my pleasant suprise

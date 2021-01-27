@@ -1,3 +1,5 @@
+Setup is pretty basic, just make sure to have ap_docs and ap_docs2 in the same directory as the .py file
+
 This assignment seemed daunting at first, but once the basic principles of how it works were
 discovered i felt the logic aspect of the project was a breeze for the most part. The file contains a few
 functions, not too many, but i wanted to make my code as clean as possible so i could take snippets from it
@@ -21,7 +23,8 @@ punctuation as it looked far neater and more readable to a user.
 
 The menu function i found had me longing to be back in C in a way, as i found the Switch functions there to
 be much cleaner for designing infinitely looping menus, but using if else trees was a more than adequate
-solution, im just being picky.
+solution, im just being picky. The menu is pretty simple but functional, it error checks entries to prevent 
+any odd behaviour, just like every other user entry field in the program
 
 I designed the program to be able to accept more or less text files extra if more want to be added in the
 same format later down the line. All that would need to be changed is 2 lines to implement each new file,

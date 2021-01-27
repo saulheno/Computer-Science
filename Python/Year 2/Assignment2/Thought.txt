@@ -1,0 +1,16 @@
+__STR__ is for debugging, gives the current values 
+you set to print in the class
+
+called like str(var) in the commandline
+
+
+class is a template, can execute its own code with
+__init__ 
+
+https://www.w3schools.com/python/python_classes.asp
+
+
+use docstrings for functions and classes
+
+
+needs to have a function to automatically run through every option

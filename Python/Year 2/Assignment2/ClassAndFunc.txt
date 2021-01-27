@@ -1,0 +1,79 @@
+Class : Customer
+	This class contains the constructor for both customer types, Loyal and Bargain hunter.
+Basics such as firstname, surname etc are here, but others such as age and region add further
+complexity to the products available to a specific user. Notable I have Region and Age for these.
+Some products are available in all regions, others only in specific regions. Same for age. Customers
+under 18 may be limited in options.
+
+The Customer class has two subclasses, one for each type of customer. They set the customer as 
+selected and enable or disable exclusivity access. self.__exclusive = 1 being allowed access, 0 
+not being allowed. 
+
+The get_exclusive def returns the exclusivity value to determine if the user is eligable to see
+exclusive items.
+
+All personal info such as age, name etc are private attributes as to protect
+them more from unwanted change. The only way to access the data is by using the get definitions.
+There is no way to rewrite the data once it is set.
+
+
+Class : Products
+	This class is quite simple. It just stores a copy of the product list for easy access by 
+calling Products.ProductList for example. A list of dictionaries stores the data. Each product
+has a name, a value, a region, an agelimit marker (1 is age restricted, 0 is not), an exclusivity
+marker (1 is exclusive, 0 is not) and a unique product ID (PID) to quickly identify the item.
+
+
+Class : Shopping Cart
+	This class handles the users shopping cart. Its __init__ sets up the cart.
+It sets a dictionary, using the PID from the product list as a key for easy access, and the result
+as the amount of said item in the cart. All are initialised to 0 at the beginning for simplicity.
+
+cart_add increments the key value by 1 to signify an item being added, and cart_rem does the opposite.
+
+cart_get returns the cart in its entirety to where it was called for easy access.
+
+cart_key takes an input, in this case the PID or Key, and returns the value to see how much of a 
+given item is in the cart.
+
+
+def print_products
+	This prints the product list. It loops for the length of the list, loading 1 item at a time.
+Using the logic, the customers privellages are checked against the items' restrictions and allowed
+or denied depending on the result.
+
+
+def lock_check
+	This runs the same logic tree as print_products. This instance however is used as a backup.
+This checks to see if the item the user has entered to add to their cart is actually eligable to be
+added, as the user could potentially guess a PID on the add items section.
+
+It returns a 1 if the user is allowed, and a 0 if they are not.
+
+
+def print_cart
+	This function prints the current cart and its total value. It uses the cart_key def from
+the ShoppingCart class to retrieve the value of each key. If its 0, its not displayed to the user.
+
+
+def test
+	This is used to test the program as a whole. It simplifies the customer creation proccess,
+asking only for some exclusivity toggles to check restriction functionality. It uses set details 
+otherwise. It runs through all functions of the program, such as printing the list, adding and
+removing items, displaying the cart etc all at once to speed up testing
+
+
+def menu
+	This is the main menu. This is where the program spends most of its time. It lays out 
+options for the user to pick and guides them through the program. It has a plethora of error checks
+to ensure the program runs as intended.
+
+The menu has a hidden option that activates when the user presses 0 instead of 1-5. This leads to
+the test function to quickly test the current build of the code.
+
+Menu returns the values flag, cust and cart at the end of each loop. This is to ensure data is
+carried over between iterations of the function.
+
+
+def main
+	This is just the main function where everything begins

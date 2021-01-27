@@ -14,7 +14,7 @@ def parse(file, articles, count):
         line = line.strip()
         if line == "<NEW DOCUMENT>":
             count = count + 1
-        word_\list_total = line.split()  # splits the lines into individual words and inserts them into a list
+        word_list_total = line.split()  # splits the lines into individual words and inserts them into a list
         for word in word_list_total:
             word = word.lower()
             word = word.strip("`.,:'_-")  # removes punctuation
