@@ -1,12 +1,12 @@
 package com.lab1.test;
 
 public class Vehicle {
-	    public String OwnerName;
-		public String Reg;
-		public int MaxSpeed;
-		public String Colour;
-		public boolean Automatic;
-		public int Wheels; 
+	public String OwnerName;
+	public String Reg;
+	public int MaxSpeed;
+	public String Colour;
+	public boolean Automatic;
+	public int Wheels; 
 	
 	
 	

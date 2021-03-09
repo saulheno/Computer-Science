@@ -1,0 +1,19 @@
+/* Split the screen in half */
+body{font-family: 'Courier New', Courier, monospace;}
+
+p{
+    color: rgb(96, 194, 161);
+}
+
+.left{
+    margin: 2px;
+    margin-left: 50px;
+    height: 20px;
+    display: inline-block
+}
+.right{
+    margin: 2px;
+    margin-right: 50px;
+    height: 20px;
+    display: inline-block
+}

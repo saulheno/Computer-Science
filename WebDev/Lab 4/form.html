@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Form</title>
+</head>
+<header>
+    <h1>Lab4 Form</h1>
+    <p>* required field</p>
+</header>
+<form>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" value="Please enter name here" required ><i style="color: rgb(255, 0, 0);">*</i><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required ><i style="color: rgb(255, 0, 0);">*</i><br>
+    <label for="website">Website:</label><br>
+    <input type="url" id="website" name="website"><br>
+    <label for="comments">Comments:</label><br>
+    <textarea rows="5" cols="80" id="comments"></textarea><br>
+    <br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other">Other</label><i style="color: rgb(255, 0, 0);">*</i><br><br>
+    <input type="submit" value="Submit">
+</form>
+</html>

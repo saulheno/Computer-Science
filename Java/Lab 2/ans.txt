@@ -1,0 +1,9 @@
+1. a. java.desktop
+	javax.swing
+b. implements a push botton
+c. 5
+
+2. a.  java.base
+	java.util
+b. 3
+c. removeAll​(Collection<?> c)

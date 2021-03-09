@@ -1,0 +1,19 @@
+body {
+    color:rgb(255, 255, 255);
+    background-color: rgba(33, 120, 219, 0.6);
+  }
+h1 {
+    color:rgb(255, 255, 255);
+    border-style: ridge;
+    border-color: white;
+    border-radius: 5px;
+}
+* {
+    font-family: "Trebuchet MS", Times, sans-serif;
+}
+table, th, td {
+    border: 1px solid black;
+}
+a:hover {
+    background-color: yellow;
+}
